@@ -3,3 +3,4 @@ export { SignInActionTypes, SignoutAction, AuthenticationActionTypes } from './l
 export * from "./lib/authentication.config";
 export * from "./lib/reducers";
 export * from "./lib/authentication.module";
+export * from "./lib/services";
