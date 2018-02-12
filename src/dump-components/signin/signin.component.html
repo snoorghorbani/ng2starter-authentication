@@ -1,0 +1,36 @@
+﻿<form [formGroup]="formGroup" (ngSubmit)="signin()" fxLayout="column">
+    <div fxLayout='row' fxLayoutAlign="center center">
+
+        <mat-card fxFlex='1 1 300px'>
+            <mat-card-header>
+                <mat-card-title>ورود به پنل مدیریت</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-input-container fxFlexFill>
+                    <input type="text" matInput placeholder="نام کاربری" formControlName="Email">
+                    <mat-error *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">
+                        <div *ngIf="Email.errors.required">
+                            نام کاربری الزامی است.
+                        </div>
+                    </mat-error>
+                </mat-input-container>
+                <mat-input-container fxFlexFill>
+                    <input type="password" matInput placeholder="کلمه عبور" formControlName="Password">
+                    <mat-error *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="alert alert-danger">
+                        <div *ngIf="Password.errors.required">
+                            کلمه عبور الزامی است.
+                        </div>
+                    </mat-error>
+                </mat-input-container>
+                <!-- <auth-captcha-container></auth-captcha-container> -->
+            </mat-card-content>
+            <mat-card-actions>
+                <button fxFlex type="submit" mat-raised-button color="primary">ورود</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</form>
+<!-- <div>
+    <a fxFlex="nogrow" routerLink="/user/password/reset" mat-raised-button fxFlexFill>کلمه عبور خود را فراموش کرده اید؟</a>
+</div> -->

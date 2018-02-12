@@ -1,0 +1,1 @@
+{"version":3,"file":"check-signIn-from-local-storage-action.payload-model.js","sourceRoot":"","sources":["../../src/models/check-signIn-from-local-storage-action.payload-model.ts"],"names":[],"mappings":";;AAAA;IAGI,YAAY,mBAA2B,GAAG;QAF1C,qBAAgB,GAAW,GAAG,CAAC;QAG3B,IAAI,CAAC,gBAAgB,GAAG,gBAAgB,CAAC;IAC7C,CAAC;CAEJ;AAPD,wGAOC"}

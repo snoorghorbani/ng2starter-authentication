@@ -1,0 +1,1 @@
+{"version":3,"file":"signIn-succeed-action.payload-model.js","sourceRoot":"","sources":["../../src/models/signIn-succeed-action.payload-model.ts"],"names":[],"mappings":";;AAAA,6CAAyC;AAEzC,sCAA8C,SAAQ,sBAAS;IAG3D,YAAY,mBAA2B,GAAG;QACtC,KAAK,EAAE,CAAA;QAHX,qBAAgB,GAAY,GAAG,CAAC;QAI5B,IAAI,CAAC,gBAAgB,GAAG,gBAAgB,CAAC;IAC7C,CAAC;CAEJ;AARD,4EAQC"}
