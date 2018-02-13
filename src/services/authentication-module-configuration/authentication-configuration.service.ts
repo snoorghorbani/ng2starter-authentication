@@ -6,7 +6,7 @@ import { AuthenticationModuleConfig } from '../../authentication.config';
 import { MODULE_CONFIG_TOKEN } from '../../authentication.config';
 import { MODULE_DEFAULT_CONFIG } from './authentication-module-config-default-value';
 import { AuthenticationState } from '../../reducers';
-import { getAuthenticationModuleConfig } from '@ng2-starter/config';
+import { getAuthenticationModuleConfig } from '@soushians/config';
 
 @Injectable()
 export class AuthenticationConfigurationService {

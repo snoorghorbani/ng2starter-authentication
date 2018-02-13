@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpRequestBaseModel, HttpResponseBaseModel } from '@ng2-starter/shared';
+import { HttpRequestBaseModel, HttpResponseBaseModel } from '@soushians/shared';
 import { UserModel } from '../models';
 export namespace Signin_ApiModel {
 	export class Request implements HttpRequestBaseModel<Request> {

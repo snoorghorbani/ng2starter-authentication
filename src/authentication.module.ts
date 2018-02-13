@@ -27,7 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AuthenticationModuleConfig, MODULE_CONFIG_TOKEN } from './authentication.config';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
-import { InfraModule } from '@ng2-starter/infra';
+import { InfraModule } from '@soushians/infra';
 import {
 	SigninContainerComponent,
 	CaptchaContainerComponent,

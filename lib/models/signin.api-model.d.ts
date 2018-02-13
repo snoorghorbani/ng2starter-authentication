@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { HttpRequestBaseModel, HttpResponseBaseModel } from '@ng2-starter/shared';
+import { HttpRequestBaseModel, HttpResponseBaseModel } from '@soushians/shared';
 import { UserModel } from '../models';
 export declare namespace Signin_ApiModel {
     class Request implements HttpRequestBaseModel<Request> {

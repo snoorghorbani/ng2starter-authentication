@@ -2,7 +2,7 @@
 import { FormGroup } from "@angular/forms";
 import { Observable } from 'rxjs/Rx';
 import { AbstractControl } from '@angular/forms/src/model';
-// import { SocketService } from '@ng2-starter/infra/socket';
+// import { SocketService } from '@soushians/infra/socket';
 
 @Component({
         selector: 'auth-signin',
