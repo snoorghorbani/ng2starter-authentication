@@ -4,8 +4,8 @@
 // export * from "./lib/reducers";
 // export * from "./lib/authentication.module";
 
-exports.AuthenticationModule        = require("./lib/authentication.module");
-exports.AuthenticationModuleConfig  = require("./lib/authentication.module");
+exports.AuthenticationModule        = require("./lib/authentication.module").AuthenticationModule;
+exports.AuthenticationModuleConfig  = require("./lib/authentication.module").AuthenticationModuleConfig;
 exports.reducers                    = require("./lib/reducers");
 exports.services                    = require("./lib/services");
 exports.CaptchaComponent            = require("./lib/dump-components").CaptchaComponent;
