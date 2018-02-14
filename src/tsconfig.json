@@ -1,30 +1,27 @@
 {
+	"$schema":"http://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 	  "noImplicitAny": true,
 	  "module": "commonjs",
-	  "target": "ES6",
+	  "target": "ES5",
 	  "emitDecoratorMetadata": true,
-	  "experimentalDecorators": true,
+		"experimentalDecorators": true,
+		"stripInternal": true,
 	  "sourceMap": true,
 		"outDir": "../lib",
-	  "declaration": true
+	  "declaration": true,
+		"typeRoots": ["node_modules/@types"],
+		"types": ["node"],
+		"lib": ["es2015", "dom"],
+		"skipLibCheck": true
 	},
-	"lib": ["es2017", "dom"],
-	"files": [
-	  "authentication.module.ts"
+	"include": [
+	  "index.ts"
 	],
 	"exclude": [
 	  "node_modules"
 	],
-	"typeRoots": [
-		"node_modules/@types"
-  ],
-	"paths": {
-		"models": [
-			"models/index"
-		],
-		"environments/*": [
-			"src/environments/*"
-		]
-	}
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  }
 }
