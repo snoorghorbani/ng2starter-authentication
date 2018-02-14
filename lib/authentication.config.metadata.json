@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"AuthenticationModuleConfig":{"__symbolic":"interface"},"MODULE_CONFIG_TOKEN":{"__symbolic":"new","expression":{"__symbolic":"reference","module":"@angular/core","name":"InjectionToken","line":10,"character":39},"arguments":["ModuleConfig"]}}}]
