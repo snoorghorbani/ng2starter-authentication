@@ -1,25 +1,30 @@
-import { Injectable, Inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Injectable, Inject } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
+import { BehaviorSubject } from "rxjs";
 
-import { AuthenticationModuleConfig } from '../../authentication.config';
-import { MODULE_CONFIG_TOKEN } from '../../authentication.config';
-import { MODULE_DEFAULT_CONFIG } from './authentication-module-config-default-value';
-import { AuthenticationState } from '../../reducers';
-import { getAuthenticationModuleConfig } from '@soushians/config';
+import { getAuthenticationModuleConfig } from "@soushians/config";
+
+import { AuthenticationModuleConfig } from "../../authentication.config";
+import { MODULE_CONFIG_TOKEN } from "../../authentication.config";
+import { MODULE_DEFAULT_CONFIG } from "./authentication-module-config-default-value";
+import { AuthenticationState } from "../../reducers";
 
 @Injectable()
 export class AuthenticationConfigurationService {
-	_config: AuthenticationModuleConfig;
+	private _config: AuthenticationModuleConfig;
 	get config() {
 		return this._config;
 	}
+	config$ = new BehaviorSubject(this._config);
 
 	constructor(@Inject(MODULE_CONFIG_TOKEN) configFile: any, private store: Store<AuthenticationState>) {
 		this._config = Object.assign({}, MODULE_DEFAULT_CONFIG, configFile);
+		this.config$.next(this._config);
 		this.store.select(getAuthenticationModuleConfig).subscribe((storeConfig) => {
 			if (!storeConfig) return;
 			this._config = Object.assign({}, this._config, storeConfig.Config);
+			this.config$.next(this._config);
 		});
 	}
 }
