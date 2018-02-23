@@ -12,6 +12,5 @@ export declare class SigninService {
     constructor(http: HttpClient, configurationService: AuthenticationConfigurationService, snackBar: MatSnackBar);
     signin(data: Signin_ApiModel.Request): Observable<UserModel>;
     signout(): Observable<any>;
-    is_role(role: string): Observable<boolean>;
 }
 export declare var SigninServiceStub: {};

@@ -1,1 +1,1 @@
-{"version":3,"file":"authentication.config.js","sourceRoot":"","sources":["../dist/authentication.config.ts"],"names":[],"mappings":";;AAAA,sCAA+C;AAUlC,QAAA,mBAAmB,GAAG,IAAI,qBAAc,CAA6B,cAAc,CAAC"}
+{"version":3,"file":"authentication.config.js","sourceRoot":"","sources":["../dist/authentication.config.ts"],"names":[],"mappings":";;AAAA,sCAA+C;AAalC,QAAA,qBAAqB,GAA+B;IAChE,SAAS,EAAE;QACV,OAAO,EAAE,EAAE;QACX,MAAM,EAAE,EAAE;QACV,eAAe,EAAE,EAAE;KACnB;IACD,GAAG,EAAE;QACJ,UAAU,EAAE,KAAK;KACjB;CACD;AAEY,QAAA,mBAAmB,GAAG,IAAI,qBAAc,CAA6B,cAAc,CAAC"}

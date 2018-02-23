@@ -5,5 +5,9 @@ export interface AuthenticationModuleConfig {
         signIn?: string;
         userInformation?: string;
     };
+    env: {
+        production: boolean;
+    };
 }
+export declare const MODULE_DEFAULT_CONFIG: AuthenticationModuleConfig;
 export declare const MODULE_CONFIG_TOKEN: InjectionToken<AuthenticationModuleConfig>;

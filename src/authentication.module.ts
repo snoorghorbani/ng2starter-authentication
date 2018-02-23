@@ -1,8 +1,8 @@
-﻿import { NgModule, ModuleWithProviders, InjectionToken, Injectable, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
+﻿import { NgModule, ModuleWithProviders, InjectionToken, Injectable, Inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import {
 	MatIconModule,
 	MatButtonModule,
@@ -19,27 +19,28 @@ import {
 	MatToolbarModule,
 	MatDatepickerModule,
 	MatProgressBarModule
-} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+} from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
 
-import { AuthenticationModuleConfig, MODULE_CONFIG_TOKEN } from './authentication.config';
-import { AuthenticationRoutingModule } from './authentication-routing.module';
-import { InfraModule } from '@soushians/infra';
+import { InfraModule } from "@soushians/infra";
+
+import { AuthenticationModuleConfig, MODULE_CONFIG_TOKEN } from "./authentication.config";
+import { AuthenticationRoutingModule } from "./authentication-routing.module";
 import {
 	SigninContainerComponent,
 	CaptchaContainerComponent,
 	AuthenticationContainerComponent
-} from './smart-components';
-import { SigninComponent, CaptchaComponent } from './dump-components';
-import { AuthenticationConfigurationService, CaptchaService, SigninService } from './services';
-import { UserGuard, SigninGuard, AgentGuard, AdminGuard } from './routing-guards';
-import { UnauthorizedInterceptor, WithCredentialInterceptor } from './interceptors';
+} from "./smart-components";
+import { SigninComponent, CaptchaComponent } from "./dump-components";
+import { AuthenticationConfigurationService, CaptchaService, SigninService } from "./services";
+import { UserGuard, SigninGuard, AgentGuard, AdminGuard } from "./routing-guards";
+import { UnauthorizedInterceptor, WithCredentialInterceptor } from "./interceptors";
 
-import { CaptchaEffects, SigninEffects, AuthenticationEffects } from './effects';
-import { AuthenticationReducers } from './reducers';
+import { CaptchaEffects, SigninEffects, AuthenticationEffects } from "./effects";
+import { AuthenticationReducers } from "./reducers";
 
 import "./smart-components";
 import "./dump-components";
@@ -81,10 +82,10 @@ import "./effects";
 	],
 	exports: [ CaptchaContainerComponent ]
 })
-export class AuthenticationModule {
+export class NgsAuthenticationModule {
 	static forRoot(config: AuthenticationModuleConfig = <AuthenticationModuleConfig>{}): ModuleWithProviders {
 		return {
-			ngModule: RootAuthenticationModule,
+			ngModule: RootNgsAuthenticationModule,
 			providers: [
 				{ provide: MODULE_CONFIG_TOKEN, useValue: config },
 				AuthenticationConfigurationService,
@@ -111,10 +112,10 @@ export class AuthenticationModule {
 
 @NgModule({
 	imports: [
-		StoreModule.forFeature('authentication', AuthenticationReducers),
+		StoreModule.forFeature("authentication", AuthenticationReducers),
 		EffectsModule.forFeature([ CaptchaEffects, SigninEffects, AuthenticationEffects ]),
 		AuthenticationRoutingModule,
-		AuthenticationModule
+		NgsAuthenticationModule
 	]
 })
-export class RootAuthenticationModule {}
+export class RootNgsAuthenticationModule {}

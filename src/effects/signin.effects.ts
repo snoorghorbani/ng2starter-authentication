@@ -30,32 +30,24 @@ export class SigninEffects {
 	preSignUpStart$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN)
 		.map(toPayload)
-		.switchMap((payload: Signin_ApiModel.Request) =>
-			this.signinService
-				.signin(payload)
-				.map((user) => new SigninSecceed(user))
-				.catch((error) => Observable.of(new SigninFailed(error)))
-		);
+		.switchMap((payload: Signin_ApiModel.Request) => this.signinService.signin(payload))
+		.map(user => new SigninSecceed(user))
+		.catch(error => Observable.of(new SigninFailed(error)));
 
-	@Effect()
+	@Effect({ dispatch: false })
 	SigninSucceed$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN_SUCCEED)
 		.map(toPayload)
-		.switchMap((data: SignInSucceedAction_PayloadModel) => {
-			this.router.navigate([ data.destinationRoute || "/" ]);
-			return Observable.empty();
-		});
+		.do((data: SignInSucceedAction_PayloadModel) => this.router.navigate([ "/" ]));
 
 	@Effect() AfterSigninFiled$ = this.actions$.ofType(SignInActionTypes.SIGNIN_FAILURE).map(() => new NewCaptcha());
 
 	@Effect({ dispatch: false })
 	redirectToLoginPage$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN_REDIRECT, SignInActionTypes.SIGNOUT)
-		.do((authed) => {
-			this.router.navigate([ "auth/signin" ]);
-		});
+		.do(authed => this.router.navigate([ "auth/signin" ]));
 
-		// TODO:
+	// TODO:
 	// @Effect({ dispatch: false })
 	// signout$ = this.actions$
 	// 	.ofType(SignInActionTypes.SIGNOUT)

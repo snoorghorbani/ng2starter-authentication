@@ -16,7 +16,7 @@ export declare class SigninEffects {
     signinService: SigninService;
     constructor(actions$: Actions, router: Router, signinService: SigninService);
     preSignUpStart$: Observable<SigninSecceed | SigninFailed>;
-    SigninSucceed$: Observable<{}>;
+    SigninSucceed$: Observable<any>;
     AfterSigninFiled$: Observable<NewCaptcha>;
     redirectToLoginPage$: Observable<Action>;
 }

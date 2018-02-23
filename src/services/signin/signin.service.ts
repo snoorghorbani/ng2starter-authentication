@@ -14,7 +14,7 @@ const SIGNIN_RESPONSE = "[APP] SIGNIN_RESPONSE";
 
 @Injectable()
 export class SigninService {
-	SigninResponse = new BehaviorSubject<UserModel>(undefined);
+	SigninResponse = new BehaviorSubject<UserModel>(new UserModel());
 	constructor(
 		private http: HttpClient,
 		private configurationService: AuthenticationConfigurationService,
@@ -53,10 +53,6 @@ export class SigninService {
 				withCredentials: true
 			})
 			.map(response => response);
-	}
-
-	is_role(role: string): Observable<boolean> {
-		return this.SigninResponse.map(user => user.Roles.indexOf(role) > -1);
 	}
 
 	// getProfileInformation(): Observable<any> {
