@@ -2,7 +2,7 @@
 	_id: string;
 	// FirstName: string;
 	// LastName: string;
-	// Username: string;
+	Username: string;
 	// MobileNumber: string;
 	// Sex: string;
 	// Birthdate: string;
@@ -15,7 +15,7 @@
 
 	constructor(params?: any) {
 		params &&
-			Object.keys(params).forEach((key) => {
+			Object.keys(params).forEach(key => {
 				if (key in params) (this as any)[key] = params[key];
 			});
 	}

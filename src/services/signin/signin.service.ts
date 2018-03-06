@@ -21,14 +21,11 @@ export class SigninService {
 		private snackBar: MatSnackBar
 	) {}
 
-	signin(data: Signin_ApiModel.Request): Observable<UserModel> {
-		var model = new Signin_ApiModel.Request(data);
+	signin(model: any): Observable<UserModel> {
 		return this.configurationService.config$
 			.filter(config => config.endpoints.signIn != "")
 			.take(1)
-			.switchMap(config =>
-				this.http.post(this.configurationService.config.endpoints.signIn, model.getRequestBody())
-			)
+			.switchMap(config => this.http.post(this.configurationService.config.endpoints.signIn, model))
 			.map((response: Signin_ApiModel.Response) =>
 				this.SigninResponse.next(new Signin_ApiModel.Response(response).extractData())
 			)
@@ -54,16 +51,6 @@ export class SigninService {
 			})
 			.map(response => response);
 	}
-
-	// getProfileInformation(): Observable<any> {
-	//         return this.http.get(this.configurationService.config.endpoints.UserInformation, {
-	//                 withCredentials: true
-	//         })
-	//                 .map(response => response as Signin_ApiModel.Response)
-	//                 .catch(err => {
-	//                         return Observable.throw('401');
-	//                 });
-	// }
 }
 
 export var SigninServiceStub = {};

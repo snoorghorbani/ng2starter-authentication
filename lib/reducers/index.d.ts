@@ -1,13 +1,13 @@
-import { MemoizedSelector } from '@ngrx/store';
-import * as userReducer from './user.reducer';
-import * as captchaReducer from './captcha.reducer';
-import { UserModel, CaptchaModel } from '../models';
+import { MemoizedSelector } from "@ngrx/store";
+import * as userReducer from "./user.reducer";
+import * as captchaReducer from "./captcha.reducer";
+import { UserModel, CaptchaModel } from "../models";
 export interface AuthenticationState {
     userStatus: userReducer.State;
     captcha: captchaReducer.State;
 }
 export interface FeatureState {
-    'authentication': AuthenticationState;
+    "authentication": AuthenticationState;
 }
 export declare const AuthenticationReducers: {
     userStatus: typeof userReducer.UserReducer;

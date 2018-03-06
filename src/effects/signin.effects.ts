@@ -16,11 +16,7 @@ import { SignInActionTypes, SigninSecceed, SigninFailed, SigninRedirect } from "
 //import {  } from '../reducers';
 import { SigninService } from "../services";
 import { NewCaptcha } from "../actions";
-import {
-	CheckSignInFromLocalStorageAction_PayloadModel,
-	Signin_ApiModel,
-	SignInSucceedAction_PayloadModel
-} from "../models";
+import { Signin_ApiModel } from "../models";
 
 @Injectable()
 export class SigninEffects {
@@ -38,7 +34,7 @@ export class SigninEffects {
 	SigninSucceed$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN_SUCCEED)
 		.map(toPayload)
-		.do((data: SignInSucceedAction_PayloadModel) => this.router.navigate([ "/" ]));
+		.do((data: any) => this.router.navigate([ "/" ]));
 
 	@Effect() AfterSigninFiled$ = this.actions$.ofType(SignInActionTypes.SIGNIN_FAILURE).map(() => new NewCaptcha());
 

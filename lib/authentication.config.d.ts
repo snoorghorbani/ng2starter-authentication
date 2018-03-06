@@ -5,6 +5,9 @@ export interface AuthenticationModuleConfig {
         signIn?: string;
         userInformation?: string;
     };
+    forms?: {
+        signIn: string;
+    };
     env: {
         production: boolean;
     };

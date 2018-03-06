@@ -6,6 +6,9 @@ export interface AuthenticationModuleConfig {
 		signIn?: string;
 		userInformation?: string;
 	};
+	forms?: {
+		signIn: string;
+	};
 	env: {
 		production: boolean;
 	};
@@ -16,6 +19,9 @@ export const MODULE_DEFAULT_CONFIG: AuthenticationModuleConfig = {
 		signOut: "",
 		signIn: "",
 		userInformation: ""
+	},
+	forms: {
+		signIn: ""
 	},
 	env: {
 		production: false

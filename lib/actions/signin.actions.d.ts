@@ -1,5 +1,5 @@
-import { Action } from '@ngrx/store';
-import { Signin_ApiModel, SignInSucceedAction_PayloadModel } from '../models';
+import { Action } from "@ngrx/store";
+import { Signin_ApiModel } from "../models";
 export declare enum SignInActionTypes {
     SIGNIN = "[Auth] Signin",
     SIGNOUT = "[Auth] Signout",
@@ -13,9 +13,9 @@ export declare class Signin implements Action {
     constructor(payload: Signin_ApiModel.Request);
 }
 export declare class SigninSecceed implements Action {
-    payload: SignInSucceedAction_PayloadModel;
+    payload: any;
     readonly type: SignInActionTypes;
-    constructor(payload: SignInSucceedAction_PayloadModel);
+    constructor(payload: any);
 }
 export declare class SigninFailed implements Action {
     payload: any;

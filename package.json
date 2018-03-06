@@ -1,6 +1,6 @@
 {
 	"name": "@soushians/authentication",
-	"version": "2.0.0",
+	"version": "2.0.144",
 	"description": "",
 	"keywords": [ "Angular", "Starter", "MEAN", "MongoDB" ],
 	"main": "lib/index.js",
@@ -22,6 +22,7 @@
 		"@soushians/infra": "^2.x.x",
 		"@soushians/shared": "^2.x.x",
 		"@soushians/config": "^2.x.x",
+		"@soushians/form": "^2.x.x",
 		"@ngrx/effects": "^4.x.x",
 		"@ngrx/router-store": "^4.x.x",
 		"@ngrx/store": "^4.x.x",
