@@ -9,8 +9,9 @@ import "rxjs/add/observable/empty";
 import { Action } from "@ngrx/store";
 import { Actions, Effect, toPayload } from "@ngrx/effects";
 import { RouterAction } from "@ngrx/router-store";
+import { switchMap, map, catchError, tap } from "rxjs/operators";
 
-import { SignInActionTypes, SigninSecceed, SigninFailed, SigninRedirect } from "../actions/signin.actions";
+import { SignInActionTypes, SigninSecceed, SigninFailed, SigninRedirect, Signin } from "../actions/signin.actions";
 // import * as AuthActions from '../actions';
 
 //import {  } from '../reducers';
@@ -20,28 +21,32 @@ import { Signin_ApiModel } from "../models";
 
 @Injectable()
 export class SigninEffects {
-	constructor(private actions$: Actions, private router: Router, public signinService: SigninService) {}
+	constructor(private actions$: Actions, private router: Router, public signinService: SigninService) { }
 
 	@Effect()
 	preSignUpStart$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN)
-		.map(toPayload)
-		.switchMap((payload: Signin_ApiModel.Request) => this.signinService.signin(payload))
-		.map(user => new SigninSecceed(user))
-		.catch(error => Observable.of(new SigninFailed(error)));
+		.pipe(
+			switchMap((action: Signin) => this.signinService.signin(action.payload)),
+			map(user => new SigninSecceed(user)),
+			catchError(error => Observable.of(new SigninFailed(error)))
+		);
 
 	@Effect({ dispatch: false })
 	SigninSucceed$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN_SUCCEED)
-		.map(toPayload)
-		.do((data: any) => this.router.navigate([ "/" ]));
+		.pipe(
+			tap((data: any) => this.router.navigate(["/"]))
+		)
 
 	@Effect() AfterSigninFiled$ = this.actions$.ofType(SignInActionTypes.SIGNIN_FAILURE).map(() => new NewCaptcha());
 
 	@Effect({ dispatch: false })
 	redirectToLoginPage$ = this.actions$
 		.ofType(SignInActionTypes.SIGNIN_REDIRECT, SignInActionTypes.SIGNOUT)
-		.do(authed => this.router.navigate([ "auth/signin" ]));
+		.pipe(
+			tap(authed => this.router.navigate(["auth/signin"]))
+		);
 
 	// TODO:
 	// @Effect({ dispatch: false })

@@ -14,6 +14,7 @@ import {
         ProgressingStarted,
         ProgressingFinished,
 } from '../actions';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationEffects {
@@ -26,16 +27,20 @@ export class AuthenticationEffects {
         @Effect()
         dispachProgressingStarted$ = this.actions$
                 .ofType(
-                SignInActionTypes.SIGNIN
+                        SignInActionTypes.SIGNIN
                 )
-                .map(() => new ProgressingStarted())
+                .pipe(
+                        map(() => new ProgressingStarted())
+                )
 
         @Effect()
         dispachProgressingFinished$ = this.actions$
                 .ofType(
-                SignInActionTypes.SIGNIN_FAILURE, SignInActionTypes.SIGNIN_SUCCEED
+                        SignInActionTypes.SIGNIN_FAILURE, SignInActionTypes.SIGNIN_SUCCEED
                 )
-                .map(() => new ProgressingFinished())
+                .pipe(
+                        map(() => new ProgressingFinished())
+                )
 
 
 }

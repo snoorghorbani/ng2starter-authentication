@@ -1,1 +1,0 @@
-[{"__symbolic":"module","version":4,"metadata":{"SignInSucceedAction_PayloadModel":{"__symbolic":"class","extends":{"__symbolic":"reference","module":"./user.model","name":"UserModel","line":2,"character":54},"members":{"__ctor__":[{"__symbolic":"constructor","parameters":[{"__symbolic":"reference","name":"string"}]}]}}}}]

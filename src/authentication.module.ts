@@ -32,15 +32,14 @@ import { AuthenticationModuleConfig, MODULE_CONFIG_TOKEN } from "./authenticatio
 import { AuthenticationRoutingModule } from "./authentication-routing.module";
 import {
 	SigninContainerComponent,
-	CaptchaContainerComponent,
 	AuthenticationContainerComponent
 } from "./smart-components";
-import { SigninComponent, CaptchaComponent } from "./dump-components";
-import { AuthenticationConfigurationService, CaptchaService, SigninService } from "./services";
+import { SigninComponent } from "./dump-components";
+import { AuthenticationConfigurationService, SigninService } from "./services";
 import { UserGuard, SigninGuard, AgentGuard, AdminGuard } from "./routing-guards";
 import { UnauthorizedInterceptor, WithCredentialInterceptor } from "./interceptors";
 
-import { CaptchaEffects, SigninEffects, AuthenticationEffects } from "./effects";
+import { SigninEffects, AuthenticationEffects } from "./effects";
 import { AuthenticationReducers } from "./reducers";
 
 import "./smart-components";
@@ -77,12 +76,10 @@ import "./effects";
 	],
 	declarations: [
 		SigninContainerComponent,
-		CaptchaContainerComponent,
-		CaptchaComponent,
 		SigninComponent,
 		AuthenticationContainerComponent
 	],
-	exports: [ CaptchaContainerComponent ]
+	exports: []
 })
 export class NgsAuthenticationModule {
 	static forRoot(config: AuthenticationModuleConfig = <AuthenticationModuleConfig>{}): ModuleWithProviders {
@@ -91,7 +88,6 @@ export class NgsAuthenticationModule {
 			providers: [
 				{ provide: MODULE_CONFIG_TOKEN, useValue: config },
 				AuthenticationConfigurationService,
-				CaptchaService,
 				SigninService,
 				UserGuard,
 				AdminGuard,
@@ -115,9 +111,9 @@ export class NgsAuthenticationModule {
 @NgModule({
 	imports: [
 		StoreModule.forFeature("authentication", AuthenticationReducers),
-		EffectsModule.forFeature([ CaptchaEffects, SigninEffects, AuthenticationEffects ]),
+		EffectsModule.forFeature([SigninEffects, AuthenticationEffects]),
 		AuthenticationRoutingModule,
 		NgsAuthenticationModule
 	]
 })
-export class RootNgsAuthenticationModule {}
+export class RootNgsAuthenticationModule { }
